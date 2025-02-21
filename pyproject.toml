@@ -3,15 +3,16 @@ name = "quiz-editor-backend"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12.2"
+requires-python = ">=3.10.13"
 dependencies = [
+    "dotenv>=0.9.9",
     "duckdb>=1.2.0",
     "duckdb-engine>=0.15.0",
     "fastapi>=0.115.6",
     "markdown2>=2.5.3",
     "pydantic>=2.10.3",
     "sqlalchemy>=2.0.36",
-    "uvicorn>=0.32.1"
+    "uvicorn>=0.32.1",
 ]
 
 [dependency-groups]
