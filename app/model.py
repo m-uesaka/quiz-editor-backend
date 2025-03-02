@@ -141,9 +141,10 @@ class JudgingCriteria(Base):
     updated_by = Column(Integer, ForeignKey("user.user_id"))
     problem = relationship("Problem", back_populates="judging_criteria")
 
+
 class CommentGroup(Base):
     """Comment Group model
-    
+
     Attributes:
         __tablename__ (str): table name
         comment_group_id (int): comment group id
@@ -154,6 +155,7 @@ class CommentGroup(Base):
         updated_by (int): id of user who updated the comment group
         comments (relationship): relationship to Comment model
     """
+
     __tablename__ = "comment_group"
     comment_group_id = Column(Integer, primary_key=True, index=True)
     group_name = Column(String, nullable=False)
@@ -162,6 +164,7 @@ class CommentGroup(Base):
     created_by = Column(Integer, ForeignKey("user.user_id"))
     updated_by = Column(Integer, ForeignKey("user.user_id"))
     comments = relationship("Comment", back_populates="comment_group")
+
 
 class Comment(Base):
     """Comment model
@@ -245,4 +248,3 @@ class Tag(Base):
     problems = relationship(
         "Problem", secondary=problem_tag_association, back_populates="tags"
     )
-

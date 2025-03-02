@@ -1,13 +1,16 @@
 from pydantic import BaseModel
 
+
 # Pydanticモデルの定義
 class JudgingCriteriaCreate(BaseModel):
     criteria_type: str
     criteria_text: str
 
+
 class JudgingCriteriaUpdate(BaseModel):
     criteria_type: str | None
     criteria_text: str | None
+
 
 class ProblemCreate(BaseModel):
     """Pydantic model that defines the schema for creating a new problem.
@@ -29,6 +32,7 @@ class ProblemCreate(BaseModel):
     sort_order: int | None
     tags: list[int]
     judging_criteria: list[JudgingCriteriaCreate]  # 新しいフィールド
+
 
 class ProblemUpdate(BaseModel):
     """Pydantic model that defines the schema for updating a problem.
@@ -95,13 +99,16 @@ class TagUpdate(BaseModel):
     tag_name: str | None
     sort_order: int | None
 
+
 class CommentGroupCreate(BaseModel):
     """Pydantic model that defines the schema for creating a new comment group.
-    
+
     Attributes:
         group_name (str): group name
     """
+
     group_name: str
+
 
 class CommentGroupUpdate(BaseModel):
     """Pydantic model that defines the schema for updating a comment group.
@@ -109,7 +116,9 @@ class CommentGroupUpdate(BaseModel):
     Attributes:
         group_name (str | None): group name
     """
+
     group_name: str | None
+
 
 class CommentCreate(BaseModel):
     """Pydantic model that defines the schema for creating a new comment.
@@ -118,8 +127,10 @@ class CommentCreate(BaseModel):
         comment_group_id (int | None): comment group id
         body (str): body
     """
+
     comment_group_id: int | None
     body: str
+
 
 class CommentUpdate(BaseModel):
     """Pydantic model that defines the schema for updating a comment.
@@ -128,5 +139,6 @@ class CommentUpdate(BaseModel):
         comment_group_id (int | None): comment group id
         body (str | None): body
     """
+
     comment_group_id: int | None
     body: str | None
